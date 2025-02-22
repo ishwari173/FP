@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Fun Social</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            padding: 20px;
+        }
+
+        .register-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .register-container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: #2193b0;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .role-selector {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .role-btn {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #2193b0;
+            border-radius: 10px;
+            background: transparent;
+            color: #2193b0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .role-btn:hover, .role-btn.active {
+            background: #2193b0;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .input-group input:focus {
+            border-color: #2193b0;
+            outline: none;
+            box-shadow: 0 0 10px rgba(33, 147, 176, 0.2);
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: 0;
+            font-size: 12px;
+            color: #2193b0;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2193b0;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .register-btn:hover {
+            background: #6dd5ed;
+            transform: scale(1.02);
+        }
+
+        .bottom-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .bottom-links a {
+            color: #2193b0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .bottom-links a:hover {
+            color: #6dd5ed;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .role-selector {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Join Us! 🚀</h1>
+        
+        <div class="role-selector">
+            <button class="role-btn" data-role="student">Student</button>
+            <button class="role-btn" data-role="alumni">Alumni</button>
+            <button class="role-btn" data-role="admin">Admin</button>
+        </div>
+
+        <form id="studentForm" class="form-section">
+            <div class="input-group">
+                <input type="text" id="studentName" required>
+                <label for="studentName">Name</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="studentEmail" required>
+                <label for="studentEmail">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="studentPassword" required>
+                <label for="studentPassword">Password</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="studentBatch" required>
+                <label for="studentBatch">Batch</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="studentDepartment" required>
+                <label for="studentDepartment">Department</label>
+            </div>
+            <button type="submit" class="register-btn">Register as Student</button>
+        </form>
+
+        <form id="alumniForm" class="form-section">
+            <div class="input-group">
+                <input type="text" id="alumniName" required>
+                <label for="alumniName">Name</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="alumniEmail" required>
+                <label for="alumniEmail">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="alumniPassword" required>
+                <label for="alumniPassword">Password</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="alumniBatch" required>
+                <label for="alumniBatch">Batch</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="alumniBranch" required>
+                <label for="alumniBranch">Branch</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="alumniJob" required>
+                <label for="alumniJob">Current Job</label>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="alumniContact" required>
+                <label for="alumniContact">Contact Number</label>
+            </div>
+            <button type="submit" class="register-btn">Register as Alumni</button>
+        </form>
+
+        <form id="adminForm" class="form-section">
+            <div class="input-group">
+                <input type="text" id="adminName" required>
+                <label for="adminName">Name</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="adminEmail" required>
+                <label for="adminEmail">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="adminPassword" required>
+                <label for="adminPassword">Password</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="adminBranch" required>
+                <label for="adminBranch">Branch</label>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="adminContact" required>
+                <label for="adminContact">Contact Number</label>
+            </div>
+            <button type="submit" class="register-btn">Register as Admin</button>
+        </form>
+
+        <div class="bottom-links">
+            <a href="login.html">Already have an account? Login</a>
+        </div>
+    </div>
+
+    <script>
+        // Role selection handling
+        const roleBtns = document.querySelectorAll('.role-btn');
+        const forms = document.querySelectorAll('.form-section');
+
+        roleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const role = btn.dataset.role;
+                
+                // Update button states
+                roleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show relevant form
+                forms.forEach(form => {
+                    form.classList.remove('active');
+                    if (form.id === `${role}Form`) {
+                        form.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Form submissions
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            console.log('Form submitted:', data);
+            
+            // Animation for button click
+            const btn = e.target.querySelector('.register-btn');
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 100);
+        };
+
+        document.getElementById('studentForm').addEventListener('submit', handleSubmit);
+        document.getElementById('alumniForm').addEventListener('submit', handleSubmit);
+        document.getElementById('adminForm').addEventListener('submit', handleSubmit);
+
+        // Trigger student form display by default
+        document.querySelector('[data-role="student"]').click();
+    </script>
+</body>
+</html>
