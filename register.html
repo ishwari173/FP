@@ -207,7 +207,7 @@
             <button type="submit" class="register-btn">Register as Student</button>
         </form>
 
-        <form id="alumniForm" class="form-section">
+        <form action='/post' method="post" id="alumniForm" class="form-section">
             <div class="input-group">
                 <input type="text" id="alumniName" required>
                 <label for="alumniName">Name</label>
@@ -252,19 +252,12 @@
                 <input type="password" id="adminPassword" required>
                 <label for="adminPassword">Password</label>
             </div>
-            <div class="input-group">
-                <input type="text" id="adminBranch" required>
-                <label for="adminBranch">Branch</label>
-            </div>
-            <div class="input-group">
-                <input type="tel" id="adminContact" required>
-                <label for="adminContact">Contact Number</label>
-            </div>
+            
             <button type="submit" class="register-btn">Register as Admin</button>
         </form>
 
         <div class="bottom-links">
-            <a href="login.html">Already have an account? Login</a>
+            <a href="index.html">Already have an account? Login</a>
         </div>
     </div>
 
@@ -313,5 +306,6 @@
         // Trigger student form display by default
         document.querySelector('[data-role="student"]').click();
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
